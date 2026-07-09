@@ -2,64 +2,67 @@ import { useState, useRef } from "react";
 import "./App.css";
 
 export default function App() {
- const [open, setOpen] = useState(false);
-const [showInfo, setShowInfo] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const audioRef = useRef(null);
 
- const openLetter = async () => {
-  setOpen(true);
+  const openLetter = async () => {
+    setOpen(true);
 
-  try {
-    audioRef.current.volume = 0.4; // 20% volume
-    audioRef.current.currentTime = 0;
-    await audioRef.current.play();
-  } catch (err) {
-    console.log(err);
-  }
-};
+    try {
+      audioRef.current.volume = 0.4;
+      audioRef.current.currentTime = 0;
+      await audioRef.current.play();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="container">
-<button
-  className="infoBtn"
-  onClick={() => setShowInfo(true)}
->
-  ℹ️
-</button>
-
-{showInfo && (
-  <div className="modal">
-    <div className="modalContent">
-
+      {/* Tombol Info - di pojok kanan atas */}
       <button
-        className="closeBtn"
-        onClick={() => setShowInfo(false)}
+        className="infoBtn"
+        onClick={() => setShowInfo(true)}
       >
-        ✖
+        ℹ️
       </button>
 
-      <h2>📢 Informasi Server</h2>
+      {/* Modal Peraturan */}
+      {showInfo && (
+        <div className="modal">
+          <div className="modalContent">
+            <button
+              className="closeBtn"
+              onClick={() => setShowInfo(false)}
+            >
+              ✖
+            </button>
 
-      <p>
-        Sebelum masuk ke server Discord, mohon baca
-        peraturan berikut ya 😊
-      </p>
+            <h2>📢 Informasi Server</h2>
 
-      <h3>📜 Peraturan</h3>
+            <p>
+              Sebelum masuk ke server Discord, mohon baca
+              peraturan berikut ya 😊
+            </p>
 
-      <ul>
-        <li>🤝 Sirkel gapapa, tapi jangan musuh-musuhan ya.</li>
-        <li>🚫 Jangan SARA ya teman-teman.</li>
-        <li>🗣️ Ngomong kasar diporsiin aja, jangan sering.</li>
-        <li>💖 Jangan bikin orang nggak nyaman, saling respect.</li>
-      </ul>
+            <h3>📜 Peraturan</h3>
 
-      <p className="thanks">
-        Itu aja, tenkyuu ❤️
-      </p>
+            <ul>
+              <li>🤝 Sirkel gapapa, tapi jangan musuh-musuhan ya.</li>
+              <li>🚫 Jangan SARA ya teman-teman.</li>
+              <li>🗣️ Ngomong kasar diporsiin aja, jangan sering.</li>
+              <li>💖 Jangan bikin orang nggak nyaman, saling respect.</li>
+            </ul>
 
-    </div>
-  </div>
-)}
+            <p className="thanks">
+              Itu aja, tenkyuu ❤️
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Hiasan Hati */}
       <div className="hearts">
         <span>💖</span>
         <span>💕</span>
@@ -73,8 +76,10 @@ const [showInfo, setShowInfo] = useState(false);
 
       {!open ? (
         <>
+          {/* ✅ Judul Surat Digital tetap ada */}
           <h1 className="title">💌 Surat Digital</h1>
 
+          {/* ✅ Pesan spesial tetap ada */}
           <p className="subtitle">
             Ada sebuah pesan spesial untukmu...
           </p>
@@ -94,7 +99,6 @@ const [showInfo, setShowInfo] = useState(false);
         </>
       ) : (
         <div className="letter">
-
           <h1>💌 Halo!</h1>
 
           <p>
@@ -112,7 +116,6 @@ const [showInfo, setShowInfo] = useState(false);
           >
             🚀 Join Discord
           </a>
-
         </div>
       )}
 
@@ -122,7 +125,6 @@ const [showInfo, setShowInfo] = useState(false);
           type="audio/mpeg"
         />
       </audio>
-
     </div>
   );
 }
