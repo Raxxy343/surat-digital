@@ -14,7 +14,6 @@ export default function App() {
     setOpen(true);
     setShowConfetti(true);
 
-    // Confetti berhenti setelah 5 detik
     setTimeout(() => {
       setShowConfetti(false);
     }, 5000);
@@ -91,8 +90,9 @@ export default function App() {
         </div>
       )}
 
-      {/* Hiasan Hati */}
-      <div className="hearts">
+      {/* Hiasan Stiker Jatuh - Sekarang lebih variatif */}
+      <div className="stickers">
+        {/* Hati */}
         <span>💖</span>
         <span>💕</span>
         <span>💗</span>
@@ -100,7 +100,43 @@ export default function App() {
         <span>💘</span>
         <span>💝</span>
         <span>💓</span>
-        <span>💖</span>
+        <span>❤️</span>
+        
+        {/* Bintang */}
+        <span>⭐</span>
+        <span>🌟</span>
+        <span>✨</span>
+        <span>💫</span>
+        
+        {/* Bunga */}
+        <span>🌸</span>
+        <span>🌺</span>
+        <span>🌹</span>
+        <span>🌷</span>
+        <span>🌻</span>
+        <span>🌼</span>
+        
+        {/* Kupu-kupu & Animal */}
+        <span>🦋</span>
+        <span>🐝</span>
+        <span>🐞</span>
+        <span>🌈</span>
+        
+        {/* Love & Mood */}
+        <span>🥰</span>
+        <span>😍</span>
+        <span>🤗</span>
+        <span>💋</span>
+        
+        {/* Tambahan aesthetic */}
+        <span>🎀</span>
+        <span>🎈</span>
+        <span>🎉</span>
+        <span>🎊</span>
+        <span>🪷</span>
+        <span>🌊</span>
+        <span>☁️</span>
+        <span>🌙</span>
       </div>
 
       {!open ? (
