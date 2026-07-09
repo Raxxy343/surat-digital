@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import "./App.css";
 
 export default function App() {
-  const [open, setOpen] = useState(false);
+ const [open, setOpen] = useState(false);
+const [showInfo, setShowInfo] = useState(false);
   const audioRef = useRef(null);
 
  const openLetter = async () => {
@@ -18,7 +19,47 @@ export default function App() {
 };
   return (
     <div className="container">
+<button
+  className="infoBtn"
+  onClick={() => setShowInfo(true)}
+>
+  ℹ️
+</button>
 
+{showInfo && (
+  <div className="modal">
+    <div className="modalContent">
+
+      <button
+        className="closeBtn"
+        onClick={() => setShowInfo(false)}
+      >
+        ✖
+      </button>
+
+      <h2>📢 Informasi Server</h2>
+
+      <p>
+        Sebelum masuk ke server Discord, mohon baca
+        peraturan berikut ya 😊
+      </p>
+
+      <h3>📜 Peraturan</h3>
+
+      <ul>
+        <li>🤝 Sirkel gapapa, tapi jangan musuh-musuhan ya.</li>
+        <li>🚫 Jangan SARA ya teman-teman.</li>
+        <li>🗣️ Ngomong kasar diporsiin aja, jangan sering.</li>
+        <li>💖 Jangan bikin orang nggak nyaman, saling respect.</li>
+      </ul>
+
+      <p className="thanks">
+        Itu aja, tenkyuu ❤️
+      </p>
+
+    </div>
+  </div>
+)}
       <div className="hearts">
         <span>💖</span>
         <span>💕</span>
