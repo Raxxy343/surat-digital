@@ -76,10 +76,9 @@ export default function App() {
 
       {!open ? (
         <>
-          {/* ✅ Judul Surat Digital tetap ada */}
-          <h1 className="title">💌 Surat Digital</h1>
+          {/* ❌ "💌 Surat Digital" dihapus */}
 
-          {/* ✅ Pesan spesial tetap ada */}
+          {/* ✅ "Ada sebuah pesan spesial untukmu..." tetap ada */}
           <p className="subtitle">
             Ada sebuah pesan spesial untukmu...
           </p>
