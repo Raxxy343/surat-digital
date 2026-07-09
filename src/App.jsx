@@ -20,22 +20,16 @@ export default function App() {
           <p>
             Terima kasih sudah membuka surat ini.
             <br />
-            Semoga harimu menyenangkan.
+            Klik tombol di bawah untuk bergabung ke server Discord kami.
           </p>
 
-          <img
-            className="qr"
-            src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://google.com"
-            alt="QR Code"
-          />
-
           <a
-            href="https://discord.gg/NTwY7v3gJ"
+            href="https://discord.gg/8gnMnJXuU"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="button"
           >
-            Buka Link
+            🚀 Join Discord
           </a>
         </div>
       )}
