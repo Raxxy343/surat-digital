@@ -1,13 +1,23 @@
 import { useState, useRef } from "react";
 import "./App.css";
+import Confetti from "react-confetti";
 
 export default function App() {
   const [open, setOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const audioRef = useRef(null);
 
+  // === FITUR BUKA SURAT + CONFETTI ===
   const openLetter = async () => {
     setOpen(true);
+    setShowConfetti(true);
+
+    // Confetti berhenti setelah 5 detik
+    setTimeout(() => {
+      setShowConfetti(false);
+    }, 5000);
 
     try {
       audioRef.current.volume = 0.4;
@@ -18,14 +28,33 @@ export default function App() {
     }
   };
 
+  // === FITUR MUTE MUSIK ===
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !audioRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <div className="container">
+      {/* Confetti */}
+      {showConfetti && <Confetti />}
+
       {/* Tombol Info - di pojok kanan atas */}
       <button
         className="infoBtn"
         onClick={() => setShowInfo(true)}
       >
         ℹ️
+      </button>
+
+      {/* Tombol Mute Musik - di pojok kiri atas */}
+      <button
+        className="musicBtn"
+        onClick={toggleMusic}
+      >
+        {isMuted ? '🔇' : '🔊'}
       </button>
 
       {/* Modal Peraturan */}
@@ -76,9 +105,6 @@ export default function App() {
 
       {!open ? (
         <>
-          {/* ❌ "💌 Surat Digital" dihapus */}
-
-          {/* ✅ "Ada sebuah pesan spesial untukmu..." tetap ada */}
           <p className="subtitle">
             Ada sebuah pesan spesial untukmu...
           </p>
