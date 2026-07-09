@@ -1,18 +1,35 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 
 export default function App() {
   const [open, setOpen] = useState(false);
+  const audioRef = useRef(null);
+
+  const openLetter = async () => {
+    setOpen(true);
+
+    try {
+      audioRef.current.currentTime = 0;
+      await audioRef.current.play();
+    } catch (err) {
+      console.log("Audio gagal diputar:", err);
+    }
+  };
 
   return (
     <div className="container">
       {!open ? (
-        <img
-          src="/envelope.png"
-          alt="Envelope"
-          className="envelope"
-          onClick={() => setOpen(true)}
-        />
+        <>
+          <img
+            src="/envelope.png"
+            alt="Envelope"
+            className="envelope"
+          />
+
+          <button className="button" onClick={openLetter}>
+            💌 Buka Surat
+          </button>
+        </>
       ) : (
         <div className="letter">
           <h1>💌 Halo!</h1>
@@ -33,6 +50,10 @@ export default function App() {
           </a>
         </div>
       )}
+
+      <audio ref={audioRef} loop controls style={{ display: "none" }}>
+        <source src="/lagu.mp3" type="audio/mpeg" />
+      </audio>
     </div>
   );
 }
