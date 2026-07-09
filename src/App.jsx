@@ -30,7 +30,7 @@ export default function App() {
           />
 
           <a
-            href="https://google.com"
+            href="https://discord.gg/NTwY7v3gJ"
             target="_blank"
             rel="noreferrer"
             className="button"
