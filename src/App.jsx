@@ -19,7 +19,7 @@ export default function App() {
     }, 5000);
 
     try {
-      audioRef.current.volume = 0.4;
+      audioRef.current.volume = 0.2;
       audioRef.current.currentTime = 0;
       await audioRef.current.play();
     } catch (err) {
